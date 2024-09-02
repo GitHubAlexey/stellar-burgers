@@ -16,13 +16,21 @@ export const burgerConstructorSlice = createSlice({
   name: 'constructor',
   initialState,
   reducers: {
-    addIngredient(state, action: PayloadAction<TIngredient>) {
-      const id = uuidv4();
-      const ingredient = { ...action.payload, uniqueId: id };
-      if (ingredient.type === 'bun') {
-        state.bun = ingredient;
-      } else {
-        state.ingredients.push(ingredient);
+    addIngredient: {
+      reducer(
+        state,
+        action: PayloadAction<TIngredient & { uniqueId: string }>
+      ) {
+        const ingredient = action.payload;
+        if (ingredient.type === 'bun') {
+          state.bun = ingredient;
+        } else {
+          state.ingredients.push(ingredient);
+        }
+      },
+      prepare(ingredient: TIngredient) {
+        const uniqueId = uuidv4();
+        return { payload: { ...ingredient, uniqueId } };
       }
     },
 
