@@ -22,7 +22,7 @@ export const Login: FC = () => {
       if (res.payload) {
         setEmail('');
         setPassword('');
-        navigate('/profile');
+        navigate('/');
       }
     });
   };
