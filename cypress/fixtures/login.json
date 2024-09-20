@@ -1,0 +1,9 @@
+{
+  "success": true,
+  "accessToken": "qwerty123",
+  "refreshToken": "asdfg123",
+  "user": {
+    "email": "mail@mail.ru",
+    "name": "Name"
+  }
+}

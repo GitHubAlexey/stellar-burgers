@@ -13,6 +13,7 @@
     "prettier/prettier": [
       "warn",
       {
+        "endOfLine": "lf",
         "usePrettierrc": true
       }
     ],
